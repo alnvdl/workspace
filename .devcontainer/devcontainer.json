@@ -62,6 +62,12 @@
         },
         "alnvdl/oks": {
           "permissions": "write-all"
+        },
+        "alnvdl/Angst": {
+          "permissions": "write-all"
+        },
+        "alnvdl/WeB-tree": {
+          "permissions": "write-all"
         }
       }
     }
