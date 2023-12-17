@@ -22,8 +22,13 @@ RUN apt-get install -qq -y \
     wget \
     man-db \
     coreutils \
-    gettext
+    gettext \
+    language-pack-pt \
+    language-pack-en
+
 RUN yes | sudo unminimize
+RUN update-locale LANG=en_US.UTF-8
+RUN dpkg-reconfigure locales
 
 # See: https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
 ARG USERNAME=alnvdl
