@@ -82,3 +82,4 @@ export WORKSPACE_REPOS=${WORKSPACE_REPOS//\} \{/\}, \{}
 tmp=$(mktemp)
 envsubst < $WORKSPACE_FILE > $tmp
 cat $tmp | jq -rM > $WORKSPACE_FILE
+cd $WORKSPACE_DIR; git update-index --skip-worktree $WORKSPACE_FILE; cd -
