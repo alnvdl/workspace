@@ -3,8 +3,8 @@
     "dockerfile": "Dockerfile"
   },
   "containerUser": "alnvdl",
-  "postStartCommand": "/workspaces/workspace/start.sh",
-  "onCreateCommand": "/workspaces/workspace/create.sh",
+  "onCreateCommand": "./create.sh",
+  "postStartCommand": "./start.sh",
   "containerEnv": {
     "SHELL": "/bin/bash",
     "DEBIAN_FRONTEND": "noninteractive",
@@ -33,43 +33,6 @@
         "ms-python.black-formatter",
         "dbaeumer.vscode-eslint"
       ]
-    },
-    "codespaces": {
-      "repositories": {
-        "alnvdl/reader": {
-          "permissions": "write-all"
-        },
-        "alnvdl/terr": {
-          "permissions": "write-all"
-        },
-        "alnvdl/fstringen": {
-          "permissions": "write-all"
-        },
-        "alnvdl/request": {
-          "permissions": "write-all"
-        },
-        "alnvdl/alnvdl.github.io": {
-          "permissions": "write-all"
-        },
-        "alnvdl/squarewars": {
-          "permissions": "write-all"
-        },
-        "alnvdl/squareplanner": {
-          "permissions": "write-all"
-        },
-        "alnvdl/wcf": {
-          "permissions": "write-all"
-        },
-        "alnvdl/oks": {
-          "permissions": "write-all"
-        },
-        "alnvdl/angst": {
-          "permissions": "write-all"
-        },
-        "alnvdl/web-tree": {
-          "permissions": "write-all"
-        }
-      }
     }
   }
 }

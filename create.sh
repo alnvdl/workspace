@@ -2,21 +2,18 @@
 
 set -e
 
-DEV=/home/alnvdl/dev
-WORKSPACE_DIR=/workspaces/workspace
-WORKSPACE_FILE=$WORKSPACE_DIR/workspace.code-workspace
-WORKSPACE_DEVCONTAINER=$WORKSPACE_DIR/.devcontainer/devcontainer.json
+DEV_DIR=/home/alnvdl/dev
+WORKSPACE_DIR=$(dirname "$(realpath "$0")")
 
-GO_URL="https://go.dev/dl/go1.21.4.linux-amd64.tar.gz"
-GO_SUM="73cac0215254d0c7d1241fa40837851f3b9a8a742d0b54714cbdfb3feaf8f0af"
+GO_URL="https://go.dev/dl/go1.23.0.linux-amd64.tar.gz"
+GO_SUM="905a297f19ead44780548933e0ff1a1b86e8327bb459e92f9c0012569f76f5e3"
 
-NODE_URL="https://nodejs.org/dist/v20.9.0/node-v20.9.0-linux-x64.tar.xz"
-NODE_SUM="9033989810bf86220ae46b1381bdcdc6c83a0294869ba2ad39e1061f1e69217a"
-NODE_EXT=".tar.xz"
+NODE_URL="https://nodejs.org/dist/v20.17.0/node-v20.17.0-linux-x64.tar.xz"
+NODE_SUM="a24db3dcd151a52e75965dba04cf1b3cd579ff30d6e0af9da1aede4d0f17486b"
 
 # Prepare the dev folder.
-mkdir $DEV
-cd $DEV
+mkdir $DEV_DIR
+cd $DEV_DIR
 
 # Install go.
 wget $GO_URL
@@ -25,7 +22,7 @@ echo "$GO_SUM $go_file" | sha256sum --check
 tar xzf $go_file
 mv $go_file go
 
-export PATH=$PATH:$DEV/go/bin
+export PATH=$PATH:$DEV_DIR/go/bin
 go install -v golang.org/x/tools/gopls@latest
 go install -v github.com/go-delve/delve/cmd/dlv@latest
 
@@ -67,19 +64,25 @@ cat <<EOF > /home/alnvdl/.config/gtk-3.0/settings.ini
 gtk-enable-mnemonics = 0
 EOF
 
-# Clone repos and build VSCode workspace.
-REPOS=$(cat $WORKSPACE_DEVCONTAINER | jq -r ".customizations.codespaces.repositories | keys_unsorted[]")
-WORKSPACE_REPOS=""
-for repo in $REPOS; do
-    echo "Cloning $repo...";
-    git clone https://github.com/$repo.git;
-    repo_name=`basename $repo`
-    WORKSPACE_REPOS="${WORKSPACE_REPOS} {\"path\": \"${DEV}/${repo_name}\"}"
-done;
-# Put commas between the repo elements.
-export WORKSPACE_REPOS=${WORKSPACE_REPOS//\} \{/\}, \{}
+# Clone repos and build VSCode workspace if there's a specific config.
+WORKSPACE_DEVCONTAINER=$WORKSPACE_DIR/.devcontainer/$CONFIG/devcontainer.json
+VSCODE_WORKSPACE_FILE=$WORKSPACE_DIR/workspace.code-workspace
+if [ -n "$CONFIG" ]; then
+    REPOS=$(cat $WORKSPACE_DEVCONTAINER | jq -r ".customizations.codespaces.repositories | keys_unsorted[]")
+    WORKSPACE_REPOS=""
+    for repo in $REPOS; do
+        echo "Cloning $repo...";
+        git clone https://github.com/$repo.git;
+        repo_name=`basename $repo`
+        WORKSPACE_REPOS="${WORKSPACE_REPOS} {\"path\": \"${DEV_DIR}/${repo_name}\"}"
+    done;
+    # Put commas between the repo elements.
+    export WORKSPACE_REPOS=${WORKSPACE_REPOS//\} \{/\}, \{}
 
-tmp=$(mktemp)
-envsubst < $WORKSPACE_FILE > $tmp
-cat $tmp | jq -rM > $WORKSPACE_FILE
-cd $WORKSPACE_DIR; git update-index --skip-worktree $WORKSPACE_FILE; cd -
+    tmp=$(mktemp)
+    envsubst < $VSCODE_WORKSPACE_FILE > $tmp
+    cat $tmp | jq -rM > $VSCODE_WORKSPACE_FILE
+    cd $WORKSPACE_DIR; git update-index --skip-worktree $VSCODE_WORKSPACE_FILE; cd -
+else
+    rm -rf $VSCODE_WORKSPACE_FILE
+fi;
