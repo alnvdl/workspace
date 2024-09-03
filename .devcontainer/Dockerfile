@@ -8,6 +8,7 @@ RUN apt-get install -qq -y \
     sudo \
     git \
     nano \
+    curl \
     build-essential \
     python3 \
     ca-certificates \
