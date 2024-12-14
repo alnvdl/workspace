@@ -68,6 +68,9 @@
         },
         "alnvdl/web-tree": {
           "permissions": "write-all"
+        },
+        "alnvdl/vscode": {
+          "permissions": "write-all"
         }
       }
     }
