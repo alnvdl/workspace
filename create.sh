@@ -5,11 +5,11 @@ set -e
 DEV_DIR=/home/alnvdl/dev
 WORKSPACE_DIR=$(dirname "$(realpath "$0")")
 
-GO_URL="https://go.dev/dl/go1.23.0.linux-amd64.tar.gz"
-GO_SUM="905a297f19ead44780548933e0ff1a1b86e8327bb459e92f9c0012569f76f5e3"
+GO_URL="https://go.dev/dl/go1.24.0.linux-amd64.tar.gz"
+GO_SUM="dea9ca38a0b852a74e81c26134671af7c0fbe65d81b0dc1c5bfe22cf7d4c8858"
 
-NODE_URL="https://nodejs.org/dist/v20.17.0/node-v20.17.0-linux-x64.tar.xz"
-NODE_SUM="a24db3dcd151a52e75965dba04cf1b3cd579ff30d6e0af9da1aede4d0f17486b"
+NODE_URL="https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-x64.tar.xz"
+NODE_SUM="69b09dba5c8dcb05c4e4273a4340db1005abeafe3927efda2bc5b249e80437ec"
 
 # Prepare the dev folder.
 mkdir $DEV_DIR
