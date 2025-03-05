@@ -74,9 +74,6 @@
         "alnvdl/vscode": {
           "permissions": "write-all"
         },
-        "alnvdl/goread": {
-          "permissions": "write-all"
-        },
         "alnvdl/varys": {
           "permissions": "write-all"
         }
