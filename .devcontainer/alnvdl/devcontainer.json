@@ -76,6 +76,9 @@
         },
         "alnvdl/goread": {
           "permissions": "write-all"
+        },
+        "alnvdl/varys": {
+          "permissions": "write-all"
         }
       }
     }
