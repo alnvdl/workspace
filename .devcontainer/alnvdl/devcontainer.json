@@ -76,6 +76,9 @@
         },
         "alnvdl/varys": {
           "permissions": "write-all"
+        },
+        "alnvdl/varys-test": {
+          "permissions": "write-all"
         }
       }
     }
