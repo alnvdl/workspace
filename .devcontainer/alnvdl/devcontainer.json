@@ -77,7 +77,7 @@
         "alnvdl/varys": {
           "permissions": "write-all"
         },
-        "alnvdl/varys-test": {
+        "alnvdl/diagrama": {
           "permissions": "write-all"
         }
       }
