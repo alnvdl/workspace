@@ -25,13 +25,6 @@ RUN apt-get install -qq -y \
     coreutils \
     gettext
 
-# See: https://hub.docker.com/_/debian#locales
-# RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-# RUN localedef -i pt_BR -c -f UTF-8 -A /usr/share/locale/locale.alias pt_BR.UTF-8
-# RUN dpkg-reconfigure locales
-# RUN update-locale LANG=en_US.UTF-8
-# ENV LANG en_US.utf8
-
 # See: https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
 ARG USERNAME=alnvdl
 ARG USER_UID=1000
