@@ -38,9 +38,6 @@
     },
     "codespaces": {
       "repositories": {
-        "alnvdl/reader": {
-          "permissions": "write-all"
-        },
         "alnvdl/terr": {
           "permissions": "write-all"
         },
@@ -59,16 +56,10 @@
         "alnvdl/squareplanner": {
           "permissions": "write-all"
         },
-        "alnvdl/wcf": {
-          "permissions": "write-all"
-        },
         "alnvdl/oks": {
           "permissions": "write-all"
         },
         "alnvdl/angst": {
-          "permissions": "write-all"
-        },
-        "alnvdl/web-tree": {
           "permissions": "write-all"
         },
         "alnvdl/vscode": {
@@ -78,6 +69,15 @@
           "permissions": "write-all"
         },
         "alnvdl/diagrama": {
+          "permissions": "write-all"
+        },
+        "alnvdl/lightwebapp": {
+          "permissions": "write-all"
+        },
+        "alnvdl/apurator": {
+          "permissions": "write-all"
+        },
+        "alnvdl/anything": {
           "permissions": "write-all"
         }
       }

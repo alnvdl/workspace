@@ -31,7 +31,9 @@
         "ms-python.flake8",
         "ms-python.mypy-type-checker",
         "ms-python.black-formatter",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
       ]
     }
   }

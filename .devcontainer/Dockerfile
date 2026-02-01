@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM debian:trixie
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -13,21 +13,18 @@ RUN apt-get install -qq -y \
     python3 \
     ca-certificates \
     jq \
-    postgresql-14 \
+    postgresql \
     redis \
     sqlite3 \
     python3-venv \
     python3-pip \
-    clang-15 \
+    clang \
     locales \
     wget \
     man-db \
     coreutils \
-    gettext \
-    language-pack-pt \
-    language-pack-en
+    gettext
 
-RUN yes | sudo unminimize
 RUN update-locale LANG=en_US.UTF-8
 RUN dpkg-reconfigure locales
 
