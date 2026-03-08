@@ -66,6 +66,9 @@
         },
         "alnvdl/anything": {
           "permissions": "write-all"
+        },
+        "alnvdl/littletable": {
+          "permissions": "write-all"
         }
       }
     }
