@@ -35,6 +35,9 @@ node_dir=`basename $node_file .tar.xz`
 mv $node_dir node
 mv $node_file node
 
+export PATH=$PATH:$DEV_DIR/node/bin
+npm config set min-release-age=7
+
 # Set shell config.
 cat <<EOF >> /home/alnvdl/.bashrc
 export PS1='\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\] \\$ '
