@@ -5,11 +5,11 @@ set -e
 DEV_DIR=/home/alnvdl/dev
 WORKSPACE_DIR=$(dirname "$(realpath "$0")")
 
-GO_URL="https://go.dev/dl/go1.25.6.linux-amd64.tar.gz"
-GO_SUM="f022b6aad78e362bcba9b0b94d09ad58c5a70c6ba3b7582905fababf5fe0181a"
+GO_URL="https://go.dev/dl/go1.26.5.linux-amd64.tar.gz"
+GO_SUM="5c2c3b16caefa1d968a94c1daca04a7ca301a496d9b086e17ad77bb81393f053"
 
-NODE_URL="https://nodejs.org/dist/v24.13.0/node-v24.13.0-linux-x64.tar.xz"
-NODE_SUM="e798599612f4bb71333a3397ab0d095fd62214e115aea45aa858a145fc72d67e"
+NODE_URL="https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz"
+NODE_SUM="55aa7153f9d88f28d765fcdad5ae6945b5c0f98a36881703817e4c450fa76742"
 
 # Prepare the dev folder.
 mkdir $DEV_DIR
@@ -23,8 +23,8 @@ tar xzf $go_file
 mv $go_file go
 
 export PATH=$PATH:$DEV_DIR/go/bin
-go install -v golang.org/x/tools/gopls@latest
-go install -v github.com/go-delve/delve/cmd/dlv@latest
+go install -v golang.org/x/tools/gopls@v0.23.0
+go install -v github.com/go-delve/delve/cmd/dlv@v1.27.0
 
 # Install node.
 wget $NODE_URL
