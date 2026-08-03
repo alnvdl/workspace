@@ -8,7 +8,7 @@
   "containerEnv": {
     "SHELL": "/bin/bash",
     "DEBIAN_FRONTEND": "noninteractive",
-    "PATH": "${localEnv:PATH}:/home/alnvdl/dev/go/bin:/home/alnvdl/dev/node/bin"
+    "PATH": "${localEnv:PATH}:/home/alnvdl/dev/go/bin:/home/alnvdl/go/bin:/home/alnvdl/dev/node/bin"
   },
   "customizations": {
     "vscode": {
