@@ -67,6 +67,12 @@
         },
         "alnvdl/littletable": {
           "permissions": "write-all"
+        },
+        "alnvdl/helvcalc": {
+          "permissions": "write-all"
+        },
+        "alnvdl/gocmtfmt": {
+          "permissions": "write-all"
         }
       }
     }
