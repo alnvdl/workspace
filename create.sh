@@ -5,11 +5,11 @@ set -e
 DEV_DIR=/home/alnvdl/dev
 WORKSPACE_DIR=$(dirname "$(realpath "$0")")
 
-GO_URL="https://go.dev/dl/go1.26.5.linux-amd64.tar.gz"
-GO_SUM="5c2c3b16caefa1d968a94c1daca04a7ca301a496d9b086e17ad77bb81393f053"
+GO_URL="https://go.dev/dl/go1.27.2.linux-amd64.tar.gz"
+GO_SUM="ecbadb99091a3f46e31f5f934b068b1864eafa7995211b39eaddf76996045fe5"
 
-NODE_URL="https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz"
-NODE_SUM="55aa7153f9d88f28d765fcdad5ae6945b5c0f98a36881703817e4c450fa76742"
+NODE_URL="https://nodejs.org/dist/v24.21.0/node-v24.21.0-linux-x64.tar.xz"
+NODE_SUM="fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6"
 
 # Prepare the dev folder.
 mkdir $DEV_DIR
@@ -24,7 +24,7 @@ mv $go_file go
 
 export PATH=$PATH:$DEV_DIR/go/bin
 go install -v golang.org/x/tools/gopls@v0.23.0
-go install -v github.com/go-delve/delve/cmd/dlv@v1.27.0
+go install -v github.com/go-delve/delve/cmd/dlv@v1.27.2
 
 # Install node.
 wget $NODE_URL
